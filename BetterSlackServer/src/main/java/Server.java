@@ -4,13 +4,13 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.SocketException;
 
 public class Server {
 
     private ServerSocket serverSocket;
     private Socket socket;
     private BufferedReader input;
-    String print;
     private static final String EXIT_KEYWORD = "exit";
 
     public void startServer(int port) throws IOException {
@@ -22,17 +22,21 @@ public class Server {
 
         input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
-        while (true){
-            print = input.readLine();
-            if (print.toLowerCase().equals(EXIT_KEYWORD)){
+        while(!socket.isClosed()) {
+            String receivedMessage = "";
+
+            try {
+                receivedMessage = input.readLine();
+            } catch(SocketException ex) {
+                System.out.println("Client has been disconnected");
                 break;
             }
-            System.out.println(print);
+
+            if(receivedMessage.toLowerCase().equals(EXIT_KEYWORD)) {
+                break;
+            }
+
+            System.out.println(receivedMessage);
         }
-
-       // while (socket.isClosed() && !socket.isInputShutdown()) {
-        //}
-       // JOptionPane.showMessageDialog(null, "Client has been disconnected");
-
     }
 }
