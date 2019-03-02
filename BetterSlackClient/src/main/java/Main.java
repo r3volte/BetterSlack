@@ -9,7 +9,7 @@ public class Main {
         Client client = new Client();
 
     try{
-        client.connectToServer("127.0.0.1",55555);
+        client.connectToServer("192.168.1.74",55555);
 
     }catch (ConnectException e){
         JOptionPane.showMessageDialog(null,"Server is not running ! Please try later");

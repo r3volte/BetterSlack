@@ -1,6 +1,9 @@
+import java.io.IOException;
+
 public class ThreadOne implements Runnable {
 
     private final String name;
+    Server server = new Server();
 
     public ThreadOne(String name) {
         this.name = name;
@@ -8,6 +11,5 @@ public class ThreadOne implements Runnable {
 
 
     public void run() {
-        System.out.println("Hello from " + name);
     }
 }
