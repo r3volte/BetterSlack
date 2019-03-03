@@ -1,3 +1,5 @@
+package Sandbox;
+
 import javax.swing.*;
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -18,7 +20,7 @@ public class Server {
 
     public void startServer(int port) throws IOException {
         serverSocket = new ServerSocket(port);
-        JOptionPane.showMessageDialog(null,"Server is running");
+        JOptionPane.showMessageDialog(null,"Sandbox.Server is running");
         online = true;
 
         acceptingThread = new Thread(() -> {
@@ -28,14 +30,14 @@ public class Server {
                     clientSocket = serverSocket.accept();
                 } catch (IOException e) {
                     online = false;
-                    JOptionPane.showMessageDialog(null,"Server is running");
+                    JOptionPane.showMessageDialog(null,"Sandbox.Server is running");
                     break;
                 }
                 connecedClients.add(clientSocket);
                 System.out.println("Client has been connected. " +
                         "Users online: " + connecedClients.size());
             }
-            JOptionPane.showMessageDialog(null,"Server has been disconnected");
+            JOptionPane.showMessageDialog(null,"Sandbox.Server has been disconnected");
         });
         acceptingThread.start();
     }

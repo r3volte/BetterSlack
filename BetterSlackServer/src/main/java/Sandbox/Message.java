@@ -1,3 +1,5 @@
+package Sandbox;
+
 public class Message {
 
     private final String content;
