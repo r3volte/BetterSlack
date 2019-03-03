@@ -6,7 +6,7 @@ public class CarDemo {
 
         CarSelectionView carSelectionView = new CarSelectionView();
 
-        carSelectionView.applyFilter(num -> num.getPrice() > 10000);
+        carSelectionView.applyFilter(num -> num.getPrice() > 80000);
 
     }
 }
