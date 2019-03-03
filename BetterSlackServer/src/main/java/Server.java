@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -17,7 +18,7 @@ public class Server {
 
     public void startServer(int port) throws IOException {
         serverSocket = new ServerSocket(port);
-        System.out.println("Server is running...");
+        JOptionPane.showMessageDialog(null,"Server is running");
         online = true;
 
         acceptingThread = new Thread(() -> {
@@ -27,14 +28,14 @@ public class Server {
                     clientSocket = serverSocket.accept();
                 } catch (IOException e) {
                     online = false;
-                    System.out.println("Server has been disconnected");
+                    JOptionPane.showMessageDialog(null,"Server is running");
                     break;
                 }
                 connecedClients.add(clientSocket);
                 System.out.println("Client has been connected. " +
                         "Users online: " + connecedClients.size());
             }
-            System.out.println("Server has been disconnected");
+            JOptionPane.showMessageDialog(null,"Server has been disconnected");
         });
         acceptingThread.start();
     }
