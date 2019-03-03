@@ -1,4 +1,4 @@
-package New;
+package Sandbox.New;
 
 public class Main {
 

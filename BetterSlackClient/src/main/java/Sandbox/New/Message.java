@@ -1,11 +1,14 @@
-package New;
+package Sandbox.New;
 
+
+import lombok.Getter;
 
 import java.time.LocalDateTime;
 
 public class Message {
 
-    private final String content;
+@Getter
+    private String content;
     private LocalDateTime timestamp;
 
     public Message(String content) {
@@ -16,6 +19,17 @@ public class Message {
     public Message(String content, LocalDateTime timestamp) {
         this.content = content;
         this.timestamp = timestamp;
+    }
+
+    private Message() {
+    }
+
+    @Override
+    public String toString() {
+        return "Message{" +
+                "content='" + content + '\'' +
+                ", timestamp=" + timestamp +
+                '}';
     }
 }
 

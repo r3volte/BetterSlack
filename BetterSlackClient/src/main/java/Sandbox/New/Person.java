@@ -1,9 +1,12 @@
-package New;
+package Sandbox.New;
+
+import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Person {
+   @Getter
     private String name;
     private String lastName;
     private int age;
@@ -29,23 +32,4 @@ public class Person {
         purchases.add(purchase);
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public List<Purchase> getPurchases() {
-        return purchases;
-    }
-
-    public List<Integer> getIntegers() {
-        return integers;
-    }
 }
