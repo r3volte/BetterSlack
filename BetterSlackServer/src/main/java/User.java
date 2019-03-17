@@ -3,44 +3,42 @@ import lombok.Getter;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-
 @Getter
 public class User {
-
     public static final int MIN_USERNAME_LENGTH = 4;
     public static final int MAX_USERNAME_LENGTH = 20;
-    private static String userName;
-    private String password;
+
     private UUID id;
-    private LocalDateTime createdAT;
-    private LocalDateTime updatedAT;
+    private String username;
+    private String password;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 
-
-    public User(String userName, String password) {
+    public User(String username, String password) {
         id = UUID.randomUUID();
-        this.userName = userName;
+        this.username = username;
         this.password = password;
-        createdAT = LocalDateTime.now();
-        updatedAT = createdAT;
+        createdAt = LocalDateTime.now();
+        updatedAt = createdAt;
     }
 
-    public void changeUserName(String userName){
-        
-        if (!isUserNameValid()){
-            throw new IllegalArgumentException("Valid username should have" +
-                    " a length between " + MIN_USERNAME_LENGTH + " and " + MAX_USERNAME_LENGTH);
+    public void changeUsername(String username) {
+        if(!isUsernameValid(username)) {
+            throw new IllegalArgumentException("Valid username should have " +
+                    "a length between " + MIN_USERNAME_LENGTH +
+                    " and " + MAX_USERNAME_LENGTH);
         }
-        this.userName = userName;
+        this.username = username;
         update();
     }
 
-    public static boolean isUserNameValid(){
-        return userName != null
-                && userName.length() >= MIN_USERNAME_LENGTH
-                && userName.length() <= MAX_USERNAME_LENGTH;
+    public static boolean isUsernameValid(String username) {
+        return username != null &&
+            username.length() >= MIN_USERNAME_LENGTH &&
+            username.length() <= MAX_USERNAME_LENGTH;
     }
 
-    private void update(){
-        updatedAT = LocalDateTime.now();
+    private void update() {
+        updatedAt = LocalDateTime.now();
     }
 }

@@ -5,7 +5,6 @@ import java.util.UUID;
 
 @Getter @Setter
 public class UserDto {
-
-    private String userName;
     private UUID id;
+    private String username;
 }

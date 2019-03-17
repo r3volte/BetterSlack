@@ -4,15 +4,14 @@ import java.time.LocalDateTime;
 
 @Getter
 public class BetterSlackError {
-
     private LocalDateTime timestamp;
     private String message;
 
     /**
-     * Constructor. needed for frameworks.
+     * Constructor for serialization
+     * and various frameworks
      */
-    private BetterSlackError(){
-
+    public BetterSlackError() {
     }
 
     public BetterSlackError(String message) {

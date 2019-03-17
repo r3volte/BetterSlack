@@ -1,4 +1,3 @@
 public interface UserService {
-
-    void register(String userName, String password);
+    void register(String username, String password);
 }
